@@ -11,3 +11,5 @@ What I Learn in this Session:
                     and i thought its same as RecyclerView but they have lots of difference,
                     will defiantly create some sample of RecyclerView Later.
                     
+    RecyclerView uses 3 Layout Managers, LinearLayoutManager, GridLayoutManger & StaggeredGridLayoutManager
+                    

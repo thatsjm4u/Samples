@@ -11,10 +11,13 @@ import android.provider.BaseColumns
 import android.support.design.widget.TextInputEditText
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
 import android.view.*
+import android.widget.LinearLayout
 
 import android.widget.TextView
 
@@ -33,7 +36,9 @@ class MainActivity : AppCompatActivity() {
 
         adapter = NotesAdapter(ArrayList(), baseContext)
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+//        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+//        recyclerView.layoutManager = GridLayoutManager(baseContext, 2)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(1, LinearLayout.HORIZONTAL)
         fab.setOnClickListener { view ->
             val alertView = LayoutInflater.from(this).inflate(R.layout.create_note, null, false)
             val etTitle = alertView.findViewById<TextInputEditText>(R.id.title)
@@ -65,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             dialogBuilder.setOnDismissListener { ReloadView() }
             dialogBuilder.show()
         }
-        
+
     }
 
     override fun onResume() {
