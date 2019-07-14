@@ -15,8 +15,10 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.text.Layout
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.LinearLayout
 
 import android.widget.TextView
@@ -36,9 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         adapter = NotesAdapter(ArrayList(), baseContext)
         recyclerView.adapter = adapter
-//        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+        recyclerView.layoutManager = LinearLayoutManager(baseContext)
 //        recyclerView.layoutManager = GridLayoutManager(baseContext, 2)
-        recyclerView.layoutManager = StaggeredGridLayoutManager(1, LinearLayout.HORIZONTAL)
+//        recyclerView.layoutManager = StaggeredGridLayoutManager(1, LinearLayout.HORIZONTAL)
         fab.setOnClickListener { view ->
             val alertView = LayoutInflater.from(this).inflate(R.layout.create_note, null, false)
             val etTitle = alertView.findViewById<TextInputEditText>(R.id.title)
@@ -70,7 +72,6 @@ class MainActivity : AppCompatActivity() {
             dialogBuilder.setOnDismissListener { ReloadView() }
             dialogBuilder.show()
         }
-
     }
 
     override fun onResume() {
@@ -165,7 +166,6 @@ class MainActivity : AppCompatActivity() {
                             put(NoteContract.NoteBasicEntry.COLUMN_NAME_NOTE_TITLE, title)
                             put(NoteContract.NoteBasicEntry.COLUMN_NAME_NOTE_CONTENT, content)
                         }
-
                         val newRowId = db?.insert(NoteContract.NoteBasicEntry.TABLE_NAME, null, values)
                     }
 
