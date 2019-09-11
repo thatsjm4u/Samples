@@ -1,0 +1,3 @@
+[submodule "Native_Mobile/Android/ListAndGridView/RecyclerViewSample"]
+	path = Native_Mobile/Android/ListAndGridView/RecyclerViewSample
+	url = https://github.com/thatsjm4u/RecyclerViewSample.git
