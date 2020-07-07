@@ -3,11 +3,11 @@ package `in`.teardown.soft.roomdatabase.model
 import android.arch.persistence.room.*
 
 @Entity
-data class Task{
-    @PrimaryKey val localId: Int
-    @ColumnInfo(name = "title") val title: String?
+data class Task(
+    @PrimaryKey val localId: Int,
+    @ColumnInfo(name = "title") val title: String?,
     @ColumnInfo(name = "description") val description: String?
-}
+)
 
 @Dao
 interface TaskDao{
